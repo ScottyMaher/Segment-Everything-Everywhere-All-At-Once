@@ -282,6 +282,9 @@ class GeneralizedSEEM(nn.Module):
             extra['grounding_tokens'] = query_emb[:,None]
             extra['grounding_nonzero_mask'] = non_zero_query_mask.t()
             extra['grounding_class'] = gtext['class_emb']
+            text_embed = self.sem_seg_head.predictor.lang_encoder.get_text_embeddings(batched_inputs[0]['text'])
+            cosine_sim = self.sem_seg_head.predictor.lang_encoder.compute_similarity(text_embed)
+            print(cosine_sim)
 
         if 'audio' in batched_inputs[0]:
             gtext = self.sem_seg_head.predictor.lang_encoder.get_text_token_embeddings(batched_inputs[0]['audio'], name='grounding', token=False, norm=False)

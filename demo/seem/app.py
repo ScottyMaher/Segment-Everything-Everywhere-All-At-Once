@@ -5,11 +5,13 @@
 # Written by Xueyan Zou (xueyan@cs.wisc.edu), Jianwei Yang (jianwyan@microsoft.com)
 # --------------------------------------------------------
 
+import sys
 import os
 import warnings
 import PIL
 from PIL import Image
 from typing import TYPE_CHECKING, Any, Callable, Dict, List, Optional, Tuple
+sys.path.append('/home/scott/Segment-Everything-Everywhere-All-At-Once')
 
 import gradio as gr
 import torch
